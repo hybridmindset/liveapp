@@ -8,64 +8,38 @@ export interface Props {
 }
 
 const App: React.FC<Props> = (props) => {
-  const [enthusiasmLevel, setEnthusiasmLevel] = React.useState(
-    props.enthusiasmLevel,
-  );
-
-  const onIncrement = () => setEnthusiasmLevel((enthusiasmLevel || 0) + 1);
-  const onDecrement = () => setEnthusiasmLevel((enthusiasmLevel || 0) - 1);
-
-  const getExclamationMarks = (numChars: number) =>
-    Array(numChars + 1).join('!');
-  return (
-    <View style={styles.root}>
-      <Text style={styles.greeting}>
-        Hello {props.name + getExclamationMarks(enthusiasmLevel || 0)}
-      </Text>
-
-      <View style={styles.buttons}>
-        <View style={styles.button}>
-          <Button
-            title="-"
-            onPress={onDecrement}
-            accessibilityLabel="decrement"
-            color="red"
-          />
+    return (
+      <View style={styles.container}>
+          <Text style={styles.welcome}>
+            Welcome to React Native!
+          </Text>
+          <Text style={styles.instructions}>
+            To get started, edit index.web.js
+          </Text>
+          <Text style={styles.instructions}>
+            Press Cmd+R to reload
+          </Text>
         </View>
-
-        <View style={styles.button}>
-          <Button
-            title="+"
-            onPress={onIncrement}
-            accessibilityLabel="increment"
-            color="blue"
-          />
-        </View>
-      </View>
-    </View>
-  );
+      );
 };
 
 // styles
 const styles = StyleSheet.create({
-  root: {
-    alignItems: 'center',
-    alignSelf: 'center',
-  },
-  buttons: {
-    flexDirection: 'row',
-    minHeight: 70,
-    alignItems: 'stretch',
-    alignSelf: 'center',
-    borderWidth: 5,
-  },
-  button: {
+  container: {
     flex: 1,
-    paddingVertical: 0,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
   },
-  greeting: {
-    color: '#999',
-    fontWeight: 'bold',
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
   },
 });
 
